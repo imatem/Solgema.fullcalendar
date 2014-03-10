@@ -72,6 +72,7 @@ def dict_from_events(events,
             # plone.app.event DX or AT Event
             is_occurrence = IOccurrence.providedBy(item)
             acc = IEventAccessor(item)
+
             return {
                 "status": "ok",
                 "id": "UID_%s" % (acc.uid),
@@ -94,7 +95,6 @@ def dict_from_events(events,
             adapted = interfaces.ISFBaseEventFields(item, None)
             if adapted:
                 allday = adapted.allDay
-
             return {
                 "status": "ok",
                 "id": "UID_%s" % (item.UID()),
@@ -123,6 +123,12 @@ def dict_from_events(events,
 
             if getattr(item, 'SFAllDay', None) in [False, True]:
                 allday = item.SFAllDay
+
+            # Set Mexico City Time
+            brainstart = DateTime(' '.join(
+                (brainstart.Date(), brainstart.Time(), 'America/Mexico_City')))
+            brainend = DateTime(' '.join(
+                (brainend.Date(), brainend.Time(), 'America/Mexico_City')))
 
             return {
                 "status": "ok",
