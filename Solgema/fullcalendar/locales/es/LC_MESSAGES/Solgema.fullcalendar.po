@@ -42,7 +42,7 @@ msgstr ""
 #. Default: "Day"
 #: ../browser/views.py:277
 msgid "Day"
-msgstr ""
+msgstr "Día"
 
 #. Default: "DaySplit"
 #: ../browser/views.py:280
