@@ -696,7 +696,7 @@ function calendarOptions() {
       options['titleFormat'] = SolgemaFullcalendarVars.titleFormat;
       options['startParam'] = "start:int";
       options['endParam'] = "end:int";
-      options['ignoreTimezone'] = false;
+      options['ignoreTimezone'] = true;
       // we need both eventSources and solgemaSources to be able to switch between
       // normal view and daysplit view
       options['solgemaSources'] = SolgemaFullcalendar.getEventSources();
